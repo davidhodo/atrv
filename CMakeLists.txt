@@ -1,7 +1,7 @@
 ## Project Setup
 cmake_minimum_required(VERSION 2.4.6)
 
-project(mdc2250)
+project(ATRV)
 
 ## Configurations
 
@@ -50,7 +50,7 @@ set(ATRV_HEADERS ${PROJECT_SOURCE_DIR}/include/atrv/atrv.h)
 
 ## Build the library
 set(ATRV_LINK_LIBS  mdc2250
-					serial
+                                        serial
                     ${Boost_SYSTEM_LIBRARY}
                     ${Boost_FILESYSTEM_LIBRARY}
                     ${Boost_THREAD_LIBRARY})
@@ -72,11 +72,11 @@ ENDIF(ATRV_BUILD_EXAMPLES)
 
 # If specified
 IF(ATRV_BUILD_TESTS)
-  # Find Google Test                                                                                                                                                               
+  # Find Google Test
   enable_testing()
   find_package(GTest REQUIRED)
   include_directories(${GTEST_INCLUDE_DIRS})
-  
+
   # Compile the Test program
   add_executable(atrv_tests tests/atrv_tests.cpp)
   # Link the Test program to the atrv library
@@ -99,18 +99,18 @@ IF(NOT ATRV_DONT_SETUP_INSTALL)
             LIBRARY DESTINATION lib
             ARCHIVE DESTINATION lib
     )
-    
+
     INSTALL(FILES ${ATRV_HEADERS} DESTINATION include/atrv)
-    
+
     IF(NOT CMAKE_FIND_INSTALL_PATH)
         set(CMAKE_FIND_INSTALL_PATH ${CMAKE_ROOT})
     ENDIF(NOT CMAKE_FIND_INSTALL_PATH)
-    
-    INSTALL(FILES Findatrv.cmake DESTINATION 
+
+    INSTALL(FILES Findatrv.cmake DESTINATION
             ${CMAKE_FIND_INSTALL_PATH}/Modules/)
-    
+
     ADD_CUSTOM_TARGET(uninstall @echo uninstall package)
-    
+
     IF(UNIX)
       ADD_CUSTOM_COMMAND(
                          COMMENT "uninstall package"
