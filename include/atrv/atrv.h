@@ -174,6 +174,7 @@ public:
     bool ESTOP();
     bool clearESTOP();
 
+    void ClearEncoderCounts();
 private:
 
     // motor controller objects

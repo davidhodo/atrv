@@ -27,6 +27,7 @@ int main(int argc, char **argv)
     // wheel diameter 16"
     // track width ~2.5'
     myATRV.setVehicleParameters(0.203,0.203,0.76);
+    myATRV.ClearEncoderCounts();
 
     bool result=myATRV.connect(portFront, portRear);
 
@@ -39,7 +40,7 @@ int main(int argc, char **argv)
     }
 
     // set up to read BA, FF, S, CR
-    myATRV.startReading(200,"C_?BA_?FF_?S_?C_");
+    myATRV.startReading(200,"C_?BA_?FF_?S_?");
 
     if (reply=='Y') {
 
@@ -74,7 +75,6 @@ int main(int argc, char **argv)
     while(1);
 
     myATRV.disconnect();
-
 
     return 0;
 }

@@ -50,7 +50,7 @@ set(ATRV_HEADERS ${PROJECT_SOURCE_DIR}/include/atrv/atrv.h)
 
 ## Build the library
 set(ATRV_LINK_LIBS  mdc2250
-                                        serial
+                    serial
                     ${Boost_SYSTEM_LIBRARY}
                     ${Boost_FILESYSTEM_LIBRARY}
                     ${Boost_THREAD_LIBRARY})

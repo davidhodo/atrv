@@ -163,3 +163,10 @@ void ATRV::setMaxRPM(long rpm) {
     mdcRear.setMaxRPM(2,rpm);
     boost::this_thread::sleep(boost::posix_time::milliseconds(100));
 }
+
+void ATRV::ClearEncoderCounts() {
+    boost::this_thread::sleep(boost::posix_time::milliseconds(100));
+    mdcFront.ClearEncoderCounts();
+    boost::this_thread::sleep(boost::posix_time::milliseconds(100));
+    mdcRear.ClearEncoderCounts();
+}
