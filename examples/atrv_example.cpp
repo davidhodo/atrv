@@ -47,6 +47,7 @@ int main(int argc, char **argv)
         myATRV.setControlPeriod(50);  // send commands at 20Hz
         myATRV.startControlThread();
 
+	std::cout << "Run with desired wheel motion. " << std::endl;
         // run motor
         for (int ii=0; ii<20; ii++)
         {
@@ -68,6 +69,17 @@ int main(int argc, char **argv)
         }
 
         myATRV.setDesiredWheelMotion(0,0);
+
+	// using desired vehicle motion command
+	std::cout << "Run with desired vehicle motion. " << std::endl;
+        // run motor
+        for (int ii=0; ii<40; ii++)
+        {
+            //std::cout << ii << std::endl;
+            myATRV.setDesiredVehicleMotion(0.5,0);
+            boost::this_thread::sleep(boost::posix_time::milliseconds(100));
+        }
+	myATRV.setDesiredVehicleMotion(0,0);
     } else {
         std::cout << "Running without motion." << std::endl;
     }
