@@ -11,7 +11,7 @@ IF(EXISTS /usr/bin/clang)
 ENDIF(EXISTS /usr/bin/clang)
 
 option(ATRV_BUILD_TESTS "Build all of the atrv tests." OFF)
-option(ATRV_BUILD_EXAMPLES "Build all of the atrvs examples." ON)
+option(ATRV_BUILD_EXAMPLES "Build all of the atrvs examples." OFF)
 
 # Allow for building shared libs override
 IF(NOT BUILD_SHARED_LIBS)

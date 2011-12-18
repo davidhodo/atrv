@@ -120,7 +120,6 @@ void ATRV::setDesiredVehicleMotion(double velocity, double yawRate){
         // calculate rpm as percentage of max rpm
         desiredLeftCmd=(leftWheelSpeed/(double)maxRPM)*1000.0;
         desiredRightCmd=(rightWheelSpeed/(double)maxRPM)*1000.0;
-
 }
 
 void ATRV::setDesiredWheelMotion(long leftWheel, long rightWheel) {
@@ -142,6 +141,8 @@ bool ATRV::clearESTOP() {
 
 void ATRV::setEncoderPPR(long ppr) {
     // TODO: later change these sleeps to waitForAck()
+    encoderPPR=ppr;
+    
     mdcFront.setEncoderPPR(1,ppr);
     boost::this_thread::sleep(boost::posix_time::milliseconds(100));
     mdcFront.setEncoderPPR(2,ppr);
@@ -154,6 +155,8 @@ void ATRV::setEncoderPPR(long ppr) {
 
 void ATRV::setMaxRPM(long rpm) {
     // TODO: later change these sleeps to waitForAck()
+    maxRPM=rpm;
+    
     mdcFront.setMaxRPM(1,rpm);
     boost::this_thread::sleep(boost::posix_time::milliseconds(100));
     mdcFront.setMaxRPM(2,rpm);
