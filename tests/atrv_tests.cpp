@@ -20,10 +20,22 @@ protected:
     ATRV myAtrv;
 };
 
-TEST_F(CommandTests, SetVehicleMotion) {
+TEST_F(CommandTests, DriveStraight) {
     myAtrv.setDesiredVehicleMotion(1.0,0.0);
-    EXPECT_EQ(15, myAtrv.desiredLeftCmd);
-    EXPECT_EQ(15, myAtrv.desiredRightCmd);
+    EXPECT_EQ(172, myAtrv.desiredLeftCmd);
+    EXPECT_EQ(172, myAtrv.desiredRightCmd);
+}
+
+TEST_F(CommandTests, DriveStraight2) {
+    myAtrv.setDesiredVehicleMotion(0.5,0.0);
+    EXPECT_EQ(86, myAtrv.desiredLeftCmd);
+    EXPECT_EQ(86, myAtrv.desiredRightCmd);
+}
+
+TEST_F(CommandTests, TurnInPlace) {
+    myAtrv.setDesiredVehicleMotion(0.0,1.0);
+    EXPECT_EQ(65, myAtrv.desiredLeftCmd);
+    EXPECT_EQ(-65, myAtrv.desiredRightCmd);
 }
 
 }
