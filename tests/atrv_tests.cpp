@@ -5,7 +5,6 @@
 #define protected public
 
 #include "atrv/atrv.h"
-
 using namespace atrv;
 
 namespace {
@@ -23,9 +22,8 @@ protected:
 
 TEST_F(CommandTests, SetVehicleMotion) {
     myAtrv.setDesiredVehicleMotion(1.0,0.0);
-    
-    EXPECT_EQ(600, myAtrv.desiredLeftCmd);
-    EXPECT_EQ(600, myAtrv.desiredRightCmd);
+    EXPECT_EQ(15, myAtrv.desiredLeftCmd);
+    EXPECT_EQ(15, myAtrv.desiredRightCmd);
 }
 
 }

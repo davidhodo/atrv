@@ -1,4 +1,5 @@
 #include "atrv/atrv.h"
+#include <math.h>
 using namespace atrv;
 
 ATRV::ATRV() {
@@ -113,9 +114,12 @@ void ATRV::setDesiredVehicleMotion(double velocity, double yawRate){
         // calculate the desired wheel commands from the given velocity
         // and yaw rate using the vehicle parameters
 
+        // get pi
+        double const Pi=4*atan(1); // Pi=3.14
+
         // calculate desired wheel speeds in [rpm]
-        double leftWheelSpeed=60*(2*velocity+yawRate*trackWidth)/(4*3.1416*radiusL);
-        double rightWheelSpeed=	60*(2*velocity-yawRate*trackWidth)/(4*3.1416*radiusR);
+        double leftWheelSpeed=60*(2*velocity+yawRate*trackWidth)/(4*Pi*radiusL);
+        double rightWheelSpeed=	60*(2*velocity-yawRate*trackWidth)/(4*Pi*radiusR);
 
         // calculate rpm as percentage of max rpm
         desiredLeftCmd=(leftWheelSpeed/(double)maxRPM)*1000.0;
