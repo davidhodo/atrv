@@ -14,7 +14,7 @@ ATRV::ATRV() {
     radiusR=0.203;
     trackWidth=0.76;
     maxRPM=3000;
-    encoderPPR=500;
+    encoderPPR=1000;
 }
 
 ATRV::~ATRV() {
