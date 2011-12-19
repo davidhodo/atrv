@@ -122,8 +122,8 @@ void ATRV::setDesiredVehicleMotion(double velocity, double yawRate){
         double rightWheelSpeed=	60*(2*velocity-yawRate*trackWidth)/(4*Pi*radiusR);
 
         // calculate rpm as percentage of max rpm
-        desiredLeftCmd=(leftWheelSpeed/(double)maxRPM)*1000.0;
-        desiredRightCmd=(rightWheelSpeed/(double)maxRPM)*1000.0;
+        desiredLeftCmd=(leftWheelSpeed/(double)maxRPM)*1000.0*11.0;
+        desiredRightCmd=(rightWheelSpeed/(double)maxRPM)*1000.0*11.0;
 }
 
 void ATRV::setDesiredWheelMotion(long leftWheel, long rightWheel) {
